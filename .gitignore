@@ -1,5 +1,6 @@
 /PinTable/Library
 /PinTable/Temp
 /PinTable/Assembly-CSharp.csproj
-/PinTable/HexMap.sln
+/PinTable/PinTable.sln
+PinTable/obj/Debug/Assembly-CSharp.csproj.FilesWrittenAbsolute.txt
 PinTable/Assembly-CSharp-Editor.csproj
