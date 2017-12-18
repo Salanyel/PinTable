@@ -14,43 +14,6 @@ public class Pyramide : PinForm {
 
 	#region Override
 
-	override public void Initialize(int p_line, int p_column, float p_baseSize, float p_spaceBetweenEachVoxel) {
-		_line = p_line;
-		_column = p_column;
-		_baseSize = p_baseSize;
-		_spaceBetweenEachVoxel = p_spaceBetweenEachVoxel;
-
-		_geometryVerticesNumber = 5;
-		_geometryTriangleNumber = 6;
-
-		if (_line * _column * _geometryVerticesNumber > 65000) {
-			Debug.LogError ("Too much vertices");
-			return;
-		}
-
-		_vertexIndex = 0;
-
-		gameObject.AddComponent<MeshFilter> ();
-		gameObject.AddComponent<MeshRenderer> ();
-
-		_vertices = new Vector3[_line * _column * _geometryVerticesNumber];
-		_triangles = new int[_line * _column * 3 * _geometryTriangleNumber];
-
-		for (int z = 0; z < _column; ++z) {
-			for (int x = 0; x < _line; ++x) {
-				CreateMesh (x, z);
-			}
-		}
-
-		_mesh = new Mesh ();
-
-		GetComponent<MeshFilter> ().mesh = _mesh;
-		_mesh.name = "PinTable";
-		_mesh.vertices = _vertices;
-		_mesh.triangles = _triangles;
-		_mesh.RecalculateNormals ();
-	}
-
 	override protected void GenerateVertex(int p_x, int p_z) {
 		float x = p_x * (_baseSize + _spaceBetweenEachVoxel);
 		float z = p_z * (_baseSize + _spaceBetweenEachVoxel);
@@ -77,12 +40,25 @@ public class Pyramide : PinForm {
 		_triangles[index + 8] = _triangles[index + 10] = _triangles[index + 13] = _triangles[index + 17] = _vertexIndex + 4;
 	}
 
-	override protected void GenerateUV() {
-
+	override protected void GenerateUV(int p_x, int p_z) {
+		Vector2 uv = new Vector2 ((float)p_x / (float)_line, (float)p_z / (float)_column);
+			
+		_uvs [_vertexIndex] = uv;
+		_uvs [_vertexIndex + 1] = uv;
+		_uvs [_vertexIndex + 2] = uv;
+		_uvs [_vertexIndex + 3] = uv;
+		_uvs [_vertexIndex + 4] = uv;
 	}
 
 	override protected void GenerateColor() {
+		Color black = new Color (0f, 0f, 0f);
+		Color white = new Color (255, 255, 255);
 
+		_colors [_vertexIndex] = black;
+		_colors [_vertexIndex + 1] = black;
+		_colors [_vertexIndex + 2] = black;
+		_colors [_vertexIndex + 3] = black;
+		_colors [_vertexIndex + 4] = white;
 	}
 
 	#endregion
