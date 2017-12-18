@@ -139,10 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb3a6a353aae49008f86106d1426c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _line: 2
-  _column: 2
-  _baseSize: 1
-  _spaceBetweenEachVoxel: 1
+  _line: 52
+  _column: 52
+  _baseSize: 0.5
+  _spaceBetweenEachVoxel: 0.1
+  _materialForMesh: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!4 &977341221
 Transform:
   m_ObjectHideFlags: 0

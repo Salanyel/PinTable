@@ -18,6 +18,9 @@ public class PinTableGenerator : MonoBehaviour {
 	[SerializeField]
 	float _spaceBetweenEachVoxel;
 
+	[SerializeField]
+	Material _materialForMesh;
+
 	int _geometryVerticesNumber = 5;
 	int _geometryTriangleNumber = 6;
 
@@ -56,18 +59,19 @@ public class PinTableGenerator : MonoBehaviour {
 		_mesh = new Mesh ();
 
 		GetComponent<MeshFilter> ().mesh = _mesh;
+		GetComponent<MeshRenderer> ().material = _materialForMesh;
 		_mesh.name = "PinTable";
 		_mesh.vertices = _vertices;
 		_mesh.triangles = _triangles;
-
+		_mesh.RecalculateNormals ();
 	}
 
-	void OnDrawGizmos () {
+	/*void OnDrawGizmos () {
 		Gizmos.color = Color.black;
 		for (int i = 0; i < _vertices.Length; i++) {
 			Gizmos.DrawSphere(_vertices[i], _baseSize/10f);
 		}
-	}
+	}//*/
 
 	#endregion
 
