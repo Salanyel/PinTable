@@ -9,8 +9,7 @@ public abstract class PinForm : MonoBehaviour {
 	/// <summary>
 	/// Configuration variables
 	/// </summary>
-	protected int _line;
-	protected int _column;
+	protected int _size;
 	protected float _baseSize;
 	protected float _spaceBetweenEachVoxel;
 
@@ -34,16 +33,15 @@ public abstract class PinForm : MonoBehaviour {
 	protected abstract void GenerateUV (int p_x, int p_z);
 	protected abstract void GenerateColor();
 
-	public void Initialize (int p_line, int p_column, float p_baseSize, float p_spaceBetweenEachVoxel) {
-		_line = p_line;
-		_column = p_column;
+	public void Initialize (int p_size, float p_baseSize, float p_spaceBetweenEachVoxel) {
+		_size = p_size;
 		_baseSize = p_baseSize;
 		_spaceBetweenEachVoxel = p_spaceBetweenEachVoxel;
 
 		_geometryVerticesNumber = 5;
 		_geometryTriangleNumber = 6;
 
-		if (_line * _column * _geometryVerticesNumber > 65000) {
+		if (_size * _size * _geometryVerticesNumber > 65000) {
 			Debug.LogError ("Too much vertices");
 			return;
 		}
@@ -53,13 +51,13 @@ public abstract class PinForm : MonoBehaviour {
 		gameObject.AddComponent<MeshFilter> ();
 		gameObject.AddComponent<MeshRenderer> ();
 
-		_vertices = new Vector3[_line * _column * _geometryVerticesNumber];
-		_triangles = new int[_line * _column * 3 * _geometryTriangleNumber];
+		_vertices = new Vector3[_size * _size * _geometryVerticesNumber];
+		_triangles = new int[_size * _size * 3 * _geometryTriangleNumber];
 		_uvs = new Vector2[_vertices.Length];
 		_colors = new Color[_vertices.Length];
 
-		for (int z = 0; z < _column; ++z) {
-			for (int x = 0; x < _line; ++x) {
+		for (int z = 0; z < _size; ++z) {
+			for (int x = 0; x < _size; ++x) {
 				CreateMesh (x, z);
 			}
 		}
@@ -68,6 +66,7 @@ public abstract class PinForm : MonoBehaviour {
 		_mesh.name = "PinTable";
 		_mesh.vertices = _vertices;
 		_mesh.triangles = _triangles;
+		_mesh.uv = _uvs;
 		_mesh.colors = _colors;
 		_mesh.RecalculateNormals ();
 

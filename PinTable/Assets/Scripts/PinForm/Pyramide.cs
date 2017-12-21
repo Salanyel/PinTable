@@ -19,6 +19,7 @@ public class Pyramide : PinForm {
 		float z = p_z * (_baseSize + _spaceBetweenEachVoxel);
 
 		//Generate 5 points
+		Debug.Log("VertexIndex: " + _vertexIndex);
 		_vertices[_vertexIndex] = new Vector3 (x, 0f, z);
 		_vertices[_vertexIndex + 1] = new Vector3 (x, 0f, z + _baseSize);
 		_vertices[_vertexIndex + 2] = new Vector3 (x + _baseSize, 0f, z + _baseSize);
@@ -27,7 +28,7 @@ public class Pyramide : PinForm {
 	}
 
 	override protected void GenerateTriangle(int p_x, int p_z) {
-		int index = ((p_x * _geometryTriangleNumber) + (p_z * _line * _geometryTriangleNumber)) * 3;
+		int index = ((p_x * _geometryTriangleNumber) + (p_z * _size * _geometryTriangleNumber)) * 3;
 
 		_triangles[index] = _triangles[index + 3] = _triangles[index + 6] = _triangles[index + 9] = _vertexIndex;
 
@@ -41,8 +42,8 @@ public class Pyramide : PinForm {
 	}
 
 	override protected void GenerateUV(int p_x, int p_z) {
-		Vector2 uv = new Vector2 ((float)p_x / (float)_line, (float)p_z / (float)_column);
-			
+		Vector2 uv = new Vector2 ((float)p_x / (float)_size, (float)p_z / (float)_size);
+		Debug.Log("--- " + _vertexIndex + " (" + p_x + ", " + p_z + ") / uv: " + uv.ToString("f4"));
 		_uvs [_vertexIndex] = uv;
 		_uvs [_vertexIndex + 1] = uv;
 		_uvs [_vertexIndex + 2] = uv;

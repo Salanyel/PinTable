@@ -139,10 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb3a6a353aae49008f86106d1426c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _line: 52
-  _column: 52
+  _size: 52
   _baseSize: 0.5
-  _spaceBetweenEachVoxel: 0.1
+  _spaceBetweenEachVoxel: 0
   _materialForMesh: {fileID: 2100000, guid: c0057c1182a9447549a28046923ec166, type: 2}
 --- !u!4 &977341221
 Transform:

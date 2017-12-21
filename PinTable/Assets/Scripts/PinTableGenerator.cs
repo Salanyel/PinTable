@@ -7,10 +7,7 @@ public class PinTableGenerator : MonoBehaviour {
 	#region Variables
 
 	[SerializeField]
-	int _line;
-
-	[SerializeField]
-	int _column;
+	int _size;
 
 	[SerializeField]
 	float _baseSize;
@@ -27,7 +24,7 @@ public class PinTableGenerator : MonoBehaviour {
 
 	void Awake() {
 		PinForm _pinTable = gameObject.AddComponent<Pyramide> ();
-		_pinTable.Initialize (_line, _column, _baseSize, _spaceBetweenEachVoxel);
+		_pinTable.Initialize (_size, _baseSize, _spaceBetweenEachVoxel);
 
 		GetComponent<MeshRenderer> ().material = _materialForMesh;
 	}
