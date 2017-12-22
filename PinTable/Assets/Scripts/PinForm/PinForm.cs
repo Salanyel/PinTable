@@ -86,5 +86,12 @@ public abstract class PinForm : MonoBehaviour {
 		_vertexIndex += _geometryVerticesNumber;
 	}
 
+	public void Destroy() {
+		Destroy(_mesh);
+		Destroy(GetComponent<MeshRenderer>());
+		Destroy(GetComponent<MeshFilter>());
+		Destroy(this);
+	}
+
 	#endregion
 }

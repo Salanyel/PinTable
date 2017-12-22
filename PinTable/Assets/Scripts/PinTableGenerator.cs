@@ -7,6 +7,9 @@ public class PinTableGenerator : MonoBehaviour {
 	#region Variables
 
 	[SerializeField]
+	bool _isGeneratingAtLaunch;
+
+	[SerializeField]
 	int _size;
 
 	[SerializeField]
@@ -18,20 +21,51 @@ public class PinTableGenerator : MonoBehaviour {
 	[SerializeField]
 	Material _materialForMesh;
 
+	ENUM_Geometry _geometry;
+	PinForm _pinTable;
+
 	#endregion
 
-	#region Unity
-
 	void Awake() {
-		PinForm _pinTable = gameObject.AddComponent<Pyramide> ();
-		_pinTable.Initialize (_size, _baseSize, _spaceBetweenEachVoxel);
-
-		GetComponent<MeshRenderer> ().material = _materialForMesh;
+		if (_isGeneratingAtLaunch) {
+			_geometry = ENUM_Geometry.pyramid;
+			OnClickToGenerate();
+		}
 	}
+
+	#region Unity
 
 	#endregion
 
 	#region Methods
+
+	/// <summary>
+	/// Destroy and generate the pin table
+	/// </summary>
+	public void OnClickToGenerate() {
+		if (_pinTable != null) {
+			_pinTable.Destroy();
+
+		}
+
+		switch (_geometry) {
+			case ENUM_Geometry.cube:
+				break;
+
+			default:
+				_pinTable = gameObject.AddComponent<Pyramide> ();
+				break;
+		}
+
+		_pinTable.Initialize (_size, _baseSize, _spaceBetweenEachVoxel);
+
+		GetComponent<MeshRenderer> ().material = _materialForMesh;
+
+	}
+
+	public void ChangeGeometry(int p_newGeometry) {
+		_geometry = (ENUM_Geometry)p_newGeometry;
+	}
 
 	#endregion
 }
