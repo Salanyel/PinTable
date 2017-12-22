@@ -51,8 +51,8 @@ public class Pyramide : PinForm {
 	}
 
 	override protected void GenerateColor() {
-		Color black = new Color (0f, 0f, 0f);
-		Color white = new Color (255, 255, 255);
+		Color black = Color.black;
+		Color white = Color.white;
 
 		_colors [_vertexIndex] = black;
 		_colors [_vertexIndex + 1] = black;
