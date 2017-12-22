@@ -33,13 +33,10 @@ public abstract class PinForm : MonoBehaviour {
 	protected abstract void GenerateUV (int p_x, int p_z);
 	protected abstract void GenerateColor();
 
-	public void Initialize (int p_size, float p_baseSize, float p_spaceBetweenEachVoxel) {
+	public virtual void Initialize (int p_size, float p_baseSize, float p_spaceBetweenEachVoxel) {
 		_size = p_size;
 		_baseSize = p_baseSize;
 		_spaceBetweenEachVoxel = p_spaceBetweenEachVoxel;
-
-		_geometryVerticesNumber = 5;
-		_geometryTriangleNumber = 6;
 
 		if (_size * _size * _geometryVerticesNumber > 65000) {
 			Debug.LogError ("Too much vertices");
@@ -91,6 +88,19 @@ public abstract class PinForm : MonoBehaviour {
 		Destroy(GetComponent<MeshRenderer>());
 		Destroy(GetComponent<MeshFilter>());
 		Destroy(this);
+	}
+
+	protected int GenerateQuad(int p_index, int p_a, int p_b, int p_c, int p_d) {
+
+		_triangles[p_index + 2] = p_a;
+
+		_triangles[p_index] = _triangles[p_index + 3] = p_b;
+
+		_triangles[p_index + 4] = p_c;
+
+		_triangles[p_index + 1] = _triangles[p_index + 5] = p_d;
+
+		return p_index + 6;
 	}
 
 	#endregion

@@ -194,7 +194,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 18409094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 358.5, y: 206.5, z: 0}
+  m_LocalPosition: {x: 358.5, y: 201.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2030678694}
@@ -792,7 +792,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isGeneratingAtLaunch: 0
-  _size: 52
+  _defaultForm: 1
+  _size: 32
   _baseSize: 0.5
   _spaceBetweenEachVoxel: 0.1
   _materialForMesh: {fileID: 2100000, guid: 88cd4450d81d74b14b532cb6b224d846, type: 2}
@@ -1291,7 +1292,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1408680851}
   m_LocalRotation: {x: 0.2835393, y: -0.3792114, z: 0.123286396, w: 0.8721265}
-  m_LocalPosition: {x: 28.21, y: 8.61, z: -1.64}
+  m_LocalPosition: {x: 21.02, y: 8.61, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1660,7 +1661,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2030678693}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -348.5, y: 196.5, z: 0}
+  m_LocalPosition: {x: -348.5, y: 191.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1703826390}

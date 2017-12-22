@@ -14,6 +14,13 @@ public class Pyramide : PinForm {
 
 	#region Override
 
+	override public void Initialize (int p_size, float p_baseSize, float p_spaceBetweenEachVoxel) {
+		_geometryVerticesNumber = 5;
+		_geometryTriangleNumber = 6;
+
+		base.Initialize(p_size, p_baseSize, p_spaceBetweenEachVoxel);
+	}
+
 	override protected void GenerateVertex(int p_x, int p_z) {
 		float x = p_x * (_baseSize + _spaceBetweenEachVoxel);
 		float z = p_z * (_baseSize + _spaceBetweenEachVoxel);
