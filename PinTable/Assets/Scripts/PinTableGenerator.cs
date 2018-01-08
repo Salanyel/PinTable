@@ -24,6 +24,9 @@ public class PinTableGenerator : MonoBehaviour {
 	[SerializeField]
 	Material _materialForMesh;
 
+	[SerializeField]
+	Texture[] _textures;
+
 	ENUM_Geometry _geometry;
 	PinForm _pinTable;
 
@@ -48,17 +51,22 @@ public class PinTableGenerator : MonoBehaviour {
 	void Initialize() {
 		switch (_geometry) {
 			case ENUM_Geometry.cube:
-				_pinTable = gameObject.AddComponent<Cube> ();
+				_pinTable = gameObject.AddComponent<Cube>();
 				break;
 
 			default:
 				_pinTable = gameObject.AddComponent<Pyramide> ();
 				break;
 		}
-
+				
 		_pinTable.Initialize (_size, _baseSize, _spaceBetweenEachVoxel);
 
 		GetComponent<MeshRenderer> ().material = _materialForMesh;
+		SetTexture((int)_geometry);
+	}
+
+	void SetTexture(int p_indexOfTexture) {
+		_pinTable.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", _textures[p_indexOfTexture]);
 	}
 
 	/// <summary>
