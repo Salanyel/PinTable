@@ -1,15 +1,28 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Shaders/PinTable.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PinForm/Cube.cs">
     <Files>
+      <File FileName="Assets/Scripts/PinTableGenerator.cs" Line="34" Column="28" />
       <File FileName="Assets/Shaders/VertexColor.shader" Line="30" Column="37" />
-      <File FileName="Assets/Scripts/PinForm/Pyramide.cs" Line="55" Column="28" />
-      <File FileName="Assets/Shaders/PinTable.shader" Line="28" Column="5" />
+      <File FileName="Assets/Scripts/PinForm/Pyramide.cs" Line="21" Column="62" />
+      <File FileName="Assets/Shaders/PinTable.shader" Line="15" Column="4" />
+      <File FileName="Assets/Scripts/ENUM.cs" Line="7" Column="10" />
+      <File FileName="Assets/Scripts/PinForm/PinForm.cs" Line="101" Column="58" />
+      <File FileName="Assets/Scripts/PinForm/Cube.cs" Line="79" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node />
+          <Node name="PinTable" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="PinForm" expanded="True">
+                  <Node name="Cube.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Shaders" expanded="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
