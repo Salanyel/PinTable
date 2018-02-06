@@ -4,5 +4,6 @@ using UnityEngine;
 
 public enum ENUM_Geometry {
 	pyramid = 0,
-	cube = 1
+	cube = 1,
+	KeyboardDisplacement = 2
 }

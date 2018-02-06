@@ -7,7 +7,7 @@
 		_Factor ("Height Modifier", Float) = 0.5
 		_Speed ("Speed of the noise", Float) = 0.5
 		_MainTex ("Noise texture", 2D) = "white" {}
-		_PlayerTex("Texture of the player", 2D) = "white" {}
+		_PlayerTex("Texture of the player", 2D) = "black" {}
 	}
 
 	SubShader
@@ -41,7 +41,7 @@
 					float4 modifiedUV = float4(uv.x + _Time.y * _Speed, uv.y + _Time.y * _Speed, 0, 0);
 
 					output.color = lerp(color, _ColorPlayer, tex2Dlod(_PlayerTex, originUV));
-					position = position + color * float4(0, _Factor, 0, 0) * tex2Dlod(_MainTex, modifiedUV);
+					position = position + output.color * float4(0, _Factor, 0, 0) * tex2Dlod(_MainTex, modifiedUV);
 					output.position = UnityObjectToClipPos(position);
 
 					return  output;
