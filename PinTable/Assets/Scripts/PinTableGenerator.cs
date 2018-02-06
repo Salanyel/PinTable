@@ -25,6 +25,12 @@ public class PinTableGenerator : MonoBehaviour {
 	Material _materialForMesh;
 
 	[SerializeField]
+	float[] _heightModifier;
+
+	[SerializeField]
+	float[] _speedModifier;
+
+	[SerializeField]
 	Texture[] _textures;
 
 	[SerializeField]
@@ -77,6 +83,8 @@ public class PinTableGenerator : MonoBehaviour {
 
 		SetTexture(mat, _textures[p_index], "_MainTex");
 		SetTexture(mat, _texturesForPlayer[p_index], "_PlayerTex");
+		SetFloat(mat, _speedModifier[p_index], "_Speed");
+		SetFloat(mat, _heightModifier[p_index], "_Factor");
 
 	}
 
