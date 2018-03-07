@@ -41,7 +41,7 @@
 					float4 modifiedUV = float4(uv.x + _Time.y * _Speed, uv.y + _Time.y * _Speed, 0, 0);
 
 					output.color = lerp(color, _ColorPlayer, tex2Dlod(_PlayerTex, originUV));
-					position = position + output.color * float4(0, _Factor, 0, 0) * tex2Dlod(_MainTex, modifiedUV);
+					position.y += lerp(1, _Factor * tex2Dlod(_MainTex, modifiedUV).r, output.color.r) * color.r;
 					output.position = UnityObjectToClipPos(position);
 
 					return  output;

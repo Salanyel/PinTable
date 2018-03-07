@@ -31,4 +31,4 @@ Material:
     - _Speed: 0.1
     m_Colors:
     - _Color: {r: 0.3162846, g: 0.522633, b: 0.8602941, a: 1}
-    - _ColorPlayer: {r: 0.24264705, g: 0.22837369, b: 0.22837369, a: 0.666}
+    - _ColorPlayer: {r: 0, g: 0, b: 0, a: 1}

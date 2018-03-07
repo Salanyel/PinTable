@@ -25,6 +25,9 @@ public class PinTableGenerator : MonoBehaviour {
 	Material _materialForMesh;
 
 	[SerializeField]
+	GameObject _CameraForPlayer;
+
+	[SerializeField]
 	float[] _heightModifier;
 
 	[SerializeField]
@@ -65,6 +68,7 @@ public class PinTableGenerator : MonoBehaviour {
 
 			case ENUM_Geometry.KeyboardDisplacement:
 				_pinTable = gameObject.AddComponent<Cube>();
+				_CameraForPlayer.transform.position = new Vector3(1000f, 1000f, 1000f);
 				break;
 
 			default:

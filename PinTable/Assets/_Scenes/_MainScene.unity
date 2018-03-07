@@ -778,7 +778,7 @@ Transform:
   m_GameObject: {fileID: 769301155}
   m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
   m_LocalPosition: {x: 1000, y: 999, z: 1000}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -878,24 +878,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb3a6a353aae49008f86106d1426c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isGeneratingAtLaunch: 0
-  _defaultForm: 1
+  _isGeneratingAtLaunch: 1
+  _defaultForm: 2
   _size: 32
   _baseSize: 0.5
   _spaceBetweenEachVoxel: 0.1
   _materialForMesh: {fileID: 2100000, guid: 88cd4450d81d74b14b532cb6b224d846, type: 2}
+  _CameraForPlayer: {fileID: 1443776686}
   _heightModifier:
   - 3
   - 3
-  - 2
+  - 4
   _speedModifier:
   - 0.1
   - 0.1
-  - 0.025
+  - 0.1
   _textures:
   - {fileID: 2800000, guid: 6c6dcf0d118e54c5fa17045e3ffc9eaf, type: 3}
   - {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2800000, guid: 6c6dcf0d118e54c5fa17045e3ffc9eaf, type: 3}
+  - {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
   _texturesForPlayer:
   - {fileID: 0}
   - {fileID: 0}
@@ -1411,7 +1412,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1443776690}
   - component: {fileID: 1443776689}
-  - component: {fileID: 1443776688}
   - component: {fileID: 1443776687}
   m_Layer: 0
   m_Name: CameraForRenderTexture
@@ -1420,20 +1420,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1443776687
-AudioListener:
+--- !u!114 &1443776687
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1443776686}
   m_Enabled: 1
---- !u!124 &1443776688
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1443776686}
-  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97735e1ee243f68469bc9c46d89d2627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bound: 5
+  _speed: 5
 --- !u!20 &1443776689
 Camera:
   m_ObjectHideFlags: 0
