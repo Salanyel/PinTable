@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isGeneratingAtLaunch: 1
-  _defaultForm: 2
+  _defaultForm: 0
   _size: 32
   _baseSize: 0.5
   _spaceBetweenEachVoxel: 0.1
